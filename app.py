@@ -1,5 +1,5 @@
 """
-Neural Image Forensics - AI Detection System
+Neural Image Forensics - Deep Learning AI Detection System
 Clean, Modern Interface
 """
 

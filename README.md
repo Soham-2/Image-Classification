@@ -1,6 +1,6 @@
 <div align="center">
   
-# 🧠 Neural Image Forensics
+# 🧠 Neural Image Forensics: Detecting AI-Generated Images Using Deep Learning
 **A High-Accuracy AI Image Detection System**
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -17,7 +17,7 @@ A state-of-the-art classifier designed to detect subtle AI generated artifacts a
 ## ✨ Features
 
 - **High Precision:** Achieves **98.18%** accuracy detecting CIFAKE artificial vs. real images.
-- **Advanced Architecture:** Powered by our custom **Vision Transformer (ViT-Base)** model, trained exclusively via our Colab pipeline.
+- **Advanced Architecture:** Powered by our custom **Vision Transformer (ViT-Base)** Deep Learning model, trained exclusively via our Colab pipeline.
 - **Cyberpunk UI:** A fully custom, sleek, futuristic web interface built with pure CSS and Gradio Blocks.
 - **Zero-Config Local Inference:** Runs entirely on your local machine to preserve privacy. The application leverages the weights generated from our Colab training to perform immediate offline inference!
 
