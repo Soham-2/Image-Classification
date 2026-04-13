@@ -80,6 +80,8 @@ If you are interested in reproducing the model training from scratch instead of 
 2. The notebook covers everything from data loading and augmentation for the **120k CIFAKE dataset** to fine-tuning the ViT model.
 3. The resulting `.safetensors` model weights were then exported and bound directly to our UI inference pipeline.
 
+> **Note on Image Resolution:** The CIFAKE dataset uses **32×32 pixel** images. This reduced resolution was chosen due to **RAM and disk constraints on Google Colab's free tier**, where processing 120,000 high-resolution images would exceed available resources. Additionally, from a deep learning standpoint, the lower resolution acts as a form of regularization—forcing the Vision Transformer to focus on low-level spectral noise patterns and diffusion artifacts rather than high-level semantic content.
+
 ---
 
 ## 📝 Specifications at a Glance
@@ -87,9 +89,10 @@ If you are interested in reproducing the model training from scratch instead of 
 | Spec | Details |
 |------|---------|
 | **Base Model** | Vision Transformer (ViT-Base) |
-| **Dataset** | CIFAKE (120,000 Images at 32x32 Resolution) |
+| **Dataset** | CIFAKE (120,000 Images at 32×32 Resolution) |
+| **Image Resolution** | 32×32 — constrained by Colab free-tier RAM/disk limits |
 | **Accuracy** | ~98.18% |
-| **Hardware Used** | NVIDIA Tesla T4 |
+| **Hardware Used** | NVIDIA Tesla T4 (Google Colab Free Tier) |
 
 ---
 
