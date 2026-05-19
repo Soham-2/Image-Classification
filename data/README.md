@@ -1,22 +1,17 @@
-# Dataset
+# Demonstration Dataset
 
-## Download Instructions
+This directory contains a small subset of the Kaggle CIFAKE dataset used exclusively for live demonstration and real-world evaluation.
 
-1. Download the AI vs Human image classification dataset from Kaggle
-2. Extract the dataset into this `data/` directory
-3. Ensure the following folder structure:
+## Structure
+
+These images are completely independent of the training and validation sets used in the Colab notebook. We deliberately held back 200 unseen images to ensure an unbiased, live test during the project presentation.
 
 ```
 data/
-├── train/
-│   ├── ai/       # AI-generated images
-│   └── real/     # Real/human-made images
-├── test/
-│   ├── ai/       # AI-generated images (for evaluation)
-│   └── real/     # Real/human-made images (for evaluation)
-└── README.md     # This file
+├── ai/       # 100 AI-generated images (0.jpg to 99.jpg)
+├── real/     # 100 Authentic/Human-made images (0.jpg to 99.jpg)
+└── README.md # This file
 ```
 
-> **Note**: The class folder names (`ai` and `real`) are detected automatically.
-> If your dataset uses different names (e.g., `FAKE` / `REAL` or `ai_generated` / `human`),
-> update `CLASS_NAMES` in `src/config.py` accordingly.
+## Usage
+Simply drag and drop any of these 200 images directly into the Gradio Web UI (`http://127.0.0.1:7860`) to observe the Vision Transformer inferencing in real-time.
