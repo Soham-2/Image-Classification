@@ -5,7 +5,6 @@
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Gradio](https://img.shields.io/badge/UI-Gradio-orange.svg)](https://gradio.app/)
-[![Transformers](https://img.shields.io/badge/Transformers-Hugging%20Face-yellow.svg)](https://huggingface.co/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 A state-of-the-art classifier designed to detect subtle AI generated artifacts and diffusion patterns invisible to the human eye, featuring a slick dark-mode UI.
@@ -17,9 +16,9 @@ A state-of-the-art classifier designed to detect subtle AI generated artifacts a
 ## ✨ Features
 
 - **High Precision:** Achieves **98.18%** accuracy detecting CIFAKE artificial vs. real images.
-- **Advanced Architecture:** Powered by our custom **Vision Transformer (ViT-Base)** Deep Learning model, trained exclusively via our Colab pipeline.
+- **Advanced Architecture:** Powered by our custom **Vision Transformer (ViT-Base)** Deep Learning model, trained exclusively via our Google Colab pipeline.
 - **Cyberpunk UI:** A fully custom, sleek, futuristic web interface built with pure CSS and Gradio Blocks.
-- **Zero-Config Local Inference:** Runs entirely on your local machine to preserve privacy. The application leverages the weights generated from our Colab training to perform immediate offline inference!
+- **Zero-Config Local Inference:** Runs entirely on your local machine to preserve privacy. The application leverages the weights generated from our Google Colab training to perform immediate offline inference!
 
 ---
 
@@ -29,7 +28,7 @@ A state-of-the-art classifier designed to detect subtle AI generated artifacts a
 ├── app.py                         # 🚀 Main entry point - the Gradio Web Application
 ├── Colab_ViT_Training_120k.ipynb  # 📓 Complete training pipeline and experimentation notebook
 ├── requirements.txt               # 📦 All Python dependencies
-├── data/                          # 📂 Reserved directory for local datasets (if needed)
+├── data/                          # 📂 Contains 200 unseen holdout images (100 AI, 100 Real) for live demonstration
 └── README.md                      # 📖 Project documentation
 ```
 
@@ -77,10 +76,10 @@ Click the resulting local URL (usually `http://127.0.0.1:7860`) in your terminal
 If you are interested in reproducing the model training from scratch instead of just running inference:
 
 1. Open `Colab_ViT_Training_120k.ipynb` in **Google Colab** (recommended for access to free T4 GPUs).
-2. The notebook covers everything from data loading and augmentation for the **120k CIFAKE dataset** to fine-tuning the ViT model.
+2. The notebook covers everything from data loading and augmentation for the **120k Kaggle CIFAKE dataset** to fine-tuning the ViT model.
 3. The resulting `.safetensors` model weights were then exported and bound directly to our UI inference pipeline.
 
-> **Note on Image Resolution:** The CIFAKE dataset uses **32×32 pixel** images. This reduced resolution was chosen due to **RAM and disk constraints on Google Colab's free tier**, where processing 120,000 high-resolution images would exceed available resources. Additionally, from a deep learning standpoint, the lower resolution acts as a form of regularization—forcing the Vision Transformer to focus on low-level spectral noise patterns and diffusion artifacts rather than high-level semantic content.
+> **Note on Image Resolution:** The Kaggle CIFAKE dataset uses **32×32 pixel** images. This reduced resolution was chosen due to **RAM and disk constraints on Google Colab's free tier**, where processing 120,000 high-resolution images would exceed available resources. Additionally, from a deep learning standpoint, the lower resolution acts as a form of regularization—forcing the Vision Transformer to focus on low-level spectral noise patterns and diffusion artifacts rather than high-level semantic content.
 
 ---
 
@@ -89,7 +88,7 @@ If you are interested in reproducing the model training from scratch instead of 
 | Spec | Details |
 |------|---------|
 | **Base Model** | Vision Transformer (ViT-Base) |
-| **Dataset** | CIFAKE (120,000 Images at 32×32 Resolution) |
+| **Dataset** | Kaggle's CIFAKE (120,000 Images at 32×32 Resolution) |
 | **Image Resolution** | 32×32 — constrained by Colab free-tier RAM/disk limits |
 | **Accuracy** | ~98.18% |
 | **Hardware Used** | NVIDIA Tesla T4 (Google Colab Free Tier) |

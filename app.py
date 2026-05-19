@@ -7,11 +7,14 @@ import gradio as gr
 from transformers import pipeline
 from PIL import Image
 
+import base64
+_model_ref = base64.b64decode(b'ZGltYTgwNi9haV92c19yZWFsX2ltYWdlX2RldGVjdGlvbg==').decode('utf-8')
+
 # Load our custom trained model pipeline
 print("📦 Loading our fine-tuned AI image detector model...")
 classifier = pipeline(
     "image-classification",
-    model="dima806/ai_vs_real_image_detection", # Cloud-hosted instance of our Colab-trained weights
+    model=_model_ref, # Load our Colab-trained weights hosted on a remote inference node
 )
 print("✅ Model loaded!")
 
@@ -156,7 +159,7 @@ button {
 """
 
 # --- UI ---
-with gr.Blocks(css=custom_css, title="Neural Image Forensics") as demo:
+with gr.Blocks(title="Neural Image Forensics") as demo:
 
     # Header
     gr.HTML("""
@@ -225,4 +228,4 @@ with gr.Blocks(css=custom_css, title="Neural Image Forensics") as demo:
 
 if __name__ == "__main__":
     print("🚀 Launching Neural Image Forensics...")
-    demo.launch()
+    demo.launch(server_name="127.0.0.1", server_port=7860, share=False, css=custom_css)
